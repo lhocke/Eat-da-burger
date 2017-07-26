@@ -1,0 +1,1 @@
+INSERT INTO burgers (burger_name, date) VALUES()
