@@ -2,24 +2,28 @@
 
 
 <div class="row">
-	<div class="burger-box">
+	<div>
 		{{#each burgers}}
 			{{#unless this.devoured}}
-				{{this.id}}
-				{{this.burger_name}}
-				<form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
-					<input type="hidden" name="devoured" value="true">
-					<button type="submit">DEVOUR!</button>
-				</form>
+				<div class="burger-box">
+					{{this.id}}
+					{{this.burger_name}}
+					<form action="/{{this.id}}?_method=PUT" method="POST">
+						<input type="hidden" name="devoured" value="true">
+						<button class="btn btn-default" type="submit">DEVOUR!</button>
+					</form>
+				</div>
 			{{/unless}}
 		{{/each}}
 	</div>
 </div>
+<br>
 <div class="row text-center">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
 		<form class="create-burger-form" action="/" method="POST">
 			<textarea class="form-control" rows="3"></textarea>
+			<button class="btn btn-default" type="submit">Create A New One</button>
 		</form>
 	</div>
 </div>

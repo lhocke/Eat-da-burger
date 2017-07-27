@@ -6,6 +6,7 @@ var methodOverride =require('method-override');
 var PORT = process.env.PORT || 7500;
 
 var app = express();
+app.use(express.static("assets"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
