@@ -11,11 +11,14 @@ var orm = {
     eatSandwich: function(table, burgerId, eaten, cb) {
         connection.query("UPDATE ?? SET devored = ? WHERE id = ?", [table, eaten, burgerId], function(err, res) {
             if (err) throw err;
-            cb(res)
+            cb(res);
         });
     },
     all: function(table, cb){
-        connection.query("SELECT ALL from")
+        connection.query("SELECT * from ??", [table], function(err, res) {
+            if (err) throw err;
+            cb(res);
+        })
     }
 }
 
