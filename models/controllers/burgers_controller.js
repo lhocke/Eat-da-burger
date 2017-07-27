@@ -19,11 +19,10 @@ router.post("/", function(req, res) {
 
 router.put("/:id", function(req, res) {
 	var eaten = req.params.id;
-	burger.updateOne({
+	burger.updateOne(
 		eaten, {devoured: req.body.eat}, function() {
 			res.redirect("/")
-		} 
-	})
-});
+		})
+})
 
 module.exports = router;
