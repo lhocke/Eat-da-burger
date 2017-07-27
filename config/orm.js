@@ -16,8 +16,9 @@ var orm = {
         });
     },
     selectAll: function(table, cb){
-        connection.query("SELECT * from ?? WHERE devoured = false", [table], function(err, res) {
+        connection.query("SELECT * from ??", [table], function(err, res) {
             if (err) throw err;
+            // console.log(res)
             cb(res);
         })
     }
