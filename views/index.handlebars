@@ -5,6 +5,7 @@
 	<div class="col-md-6 burger-box">
 		{{#each burgers}}
 			{{#unless this.devoured}}
+				{{this.id}}
 				{{this.burger_name}}
 				<form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
 					<div class=form-group>
