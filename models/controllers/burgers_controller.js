@@ -13,17 +13,17 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-	console.log(req.body)
+	// console.log(req.body)
 	burger.insertOne("burger_name", req.body.name, function() {
 		res.redirect("/");
-		console.log(req.body.name)
+		// console.log(req.body.name)
 	});
 });
 
 router.put("/:id", function(req, res) {
 	var eaten = req.params.id;
 	burger.updateOne(
-		eaten, {devoured: req.body.eat}, function() {
+		{devoured: true}, eaten, function() {
 			res.redirect("/")
 		})
 })

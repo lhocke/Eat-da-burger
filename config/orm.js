@@ -3,14 +3,18 @@ var connection = require('./connection.js')
 
 var orm = {
     insertOne: function(table, col, burger, cb) {
-        var column = col.toString()
-        connection.query("INSERT INTO ?? (?) VALUES( ? )", [table, column, burger], function(err, res) {
+        
+        var col = col.toString()
+        // var burger=burger.toString()
+        // var table = table.toString()
+        console.log(table, col, burger)
+        connection.query("INSERT INTO ?? (" + col +") VALUES ( ? );", [table, burger], function(err, res) {
             if (err) throw err;
             cb(res);
         });
     },
-    updateOne: function(table, burgerId, eaten, cb) {
-        connection.query("UPDATE ?? SET devoured = ? WHERE id = ?", [table, eaten, burgerId], function(err, res) {
+    updateOne: function(table, eaten, burgerId, cb) {
+        connection.query("UPDATE ?? SET ? WHERE id = ?", [table, eaten, burgerId], function(err, res) {
             if (err) throw err;
             cb(res);
         });

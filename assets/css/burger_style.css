@@ -2,6 +2,9 @@ body {
 	background: #dbbb1a;
 }
 
+#eaten {
+    border: solid 1px;
+}
 .burger-box {
 	background: white;
 	padding-top: 20px;
