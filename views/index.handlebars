@@ -3,32 +3,31 @@
 
 <div class="row">
 	<div class="col-md-6" id="uneaten">
-		<ul>
-			{{#each burgers}}
-				{{#unless this.devoured}}
-					<li class="burger-box text-center">
-						{{this.id}}
-						{{this.burger_name}}
-						<form action="/{{this.id}}?_method=PUT" method="POST">
-							<input type="hidden">
-							<button class="btn-warning" type="submit">DEVOUR!</button>
-						</form>
-					</li>
-				{{/unless}}
-			{{/each}}
-		</ul>
+		{{#each burgers}}
+			{{#unless this.devoured}}
+				<div class="burger-box text-center col-md-10">
+					{{this.id}}
+					{{this.burger_name}}
+				</div>
+				<div class="col-md-2">
+					<form action="/{{this.id}}?_method=PUT" method="POST">
+						<input type="hidden">
+						<button class="sub btn-warning" type="submit">DEVOUR!</button>
+					</form>
+
+				</div>
+			{{/unless}}
+		{{/each}}
 	</div>
 	<div class="col-md-6" id="eaten">
-		<ul>
-			{{#each burgers}}
-				{{#if this.devoured}}
-					<li>
-						{{this.id}}
-						{{this.burger_name}}
-					</li>
-				{{/if}}
-			{{/each}}
-		</ul>
+		{{#each burgers}}
+			{{#if this.devoured}}
+				<div class="burger-box text-center">
+					{{this.id}}
+					{{this.burger_name}}
+				</div>
+			{{/if}}
+		{{/each}}
 	</div>
 </div>
 
