@@ -1,30 +1,44 @@
-<h1 class="text-center">Burger Time!</h1>
+<div class="text-center row">
+	<div class="col-md-11">
+	<h1 class="text-center">Burger Time!</h1>
+	</div>
+</div>
 
 
 <div class="row">
 	<div class="col-md-6" id="uneaten">
+	<h2 class="text-center">Eat One Of These!</h2>
 		{{#each burgers}}
 			{{#unless this.devoured}}
-				<div class="burger-box text-center col-md-10">
-					{{this.id}}
-					{{this.burger_name}}
-				</div>
-				<div class="col-md-2">
-					<form action="/{{this.id}}?_method=PUT" method="POST">
-						<input type="hidden">
-						<button class="sub btn-warning" type="submit">DEVOUR!</button>
-					</form>
+				<div class=row>
+					<div class="burger-box text-center col-md-10">
+						<h4>
+						{{this.id}}. 
+						{{this.burger_name}}
+						</h4>
+					</div>
+					<div class="col-md-2">
+						<form action="/{{this.id}}?_method=PUT" method="POST">
+							<input type="hidden">
+							<button class="sub btn-warning" type="submit">DEVOUR!</button>
+						</form>
 
+					</div>
 				</div>
 			{{/unless}}
 		{{/each}}
 	</div>
 	<div class="col-md-6" id="eaten">
+		<h2 class="text-center">You Missed Out On These!</h2>
 		{{#each burgers}}
 			{{#if this.devoured}}
-				<div class="burger-box text-center">
-					{{this.id}}
-					{{this.burger_name}}
+				<div class="row">
+					<div class="burger-box text-center">
+						<h4>
+						{{this.id}}.
+						{{this.burger_name}}
+						</h4>
+					</div>
 				</div>
 			{{/if}}
 		{{/each}}
@@ -32,12 +46,14 @@
 </div>
 
 <div class="row">
-	<h2 class="text-center">Add a burger!</h2>
+	
 	<form class="create-burger-form" action="/" method="POST">
-		<div class="col-md-4"></div>
-		<div class="form-group col-md-4">
+		<div class="col-md-3"></div>
+		<div class="form-group col-md-5 text-center">
+			<h2 class="text-center">Add a burger!</h2>
 			<textarea class="form-control" rows="3" name="name"></textarea>
-		</div>
-		<button class="btn-info" type="submit">Create A New One</button>
+			<br>
+			<button class="btn-info" type="submit">Create A New One</button>
+
 	</form>
 </div>
