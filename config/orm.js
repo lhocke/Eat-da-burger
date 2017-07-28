@@ -4,7 +4,7 @@ var connection = require('./connection.js')
 var orm = {
     insertOne: function(table, col, burger, cb) {
         var column = col.toString()
-        connection.query("INSERT INTO ??( ? ) VALUES( ? )", [table, col, burger], function(err, res) {
+        connection.query("INSERT INTO ?? (?) VALUES( ? )", [table, column, burger], function(err, res) {
             if (err) throw err;
             cb(res);
         });
